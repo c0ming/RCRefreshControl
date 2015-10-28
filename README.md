@@ -4,14 +4,15 @@ Simple Refresh Control.
 
 ### Usage
 
-##### Use Like A UIRefreshControl:
+* Use Like A UIRefreshControl:
 
 ```
 RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
 [self.tableView addSubview:refreshControl];
 ```
 
-##### RCRefreshControlDelegate:
+* RCRefreshControlDelegate:
+
 ```
 - (CGFloat)heightOfRefreshControl:(RCRefreshControl *)refreshControl;
 
