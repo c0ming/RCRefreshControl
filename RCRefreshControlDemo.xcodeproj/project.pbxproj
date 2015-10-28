@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A95C5F0B1BE09BF2000D8B05 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A95C5F0A1BE09BF2000D8B05 /* SampleView.xib */; };
+		A95C5F0E1BE09C51000D8B05 /* SampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A95C5F0D1BE09C51000D8B05 /* SampleView.m */; };
 		A9F0047F1BE06B5F00842C59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F0047E1BE06B5F00842C59 /* main.m */; };
 		A9F004821BE06B5F00842C59 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F004811BE06B5F00842C59 /* AppDelegate.m */; };
 		A9F004851BE06B5F00842C59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F004841BE06B5F00842C59 /* ViewController.m */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A95C5F0A1BE09BF2000D8B05 /* SampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
+		A95C5F0C1BE09C51000D8B05 /* SampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleView.h; sourceTree = "<group>"; };
+		A95C5F0D1BE09C51000D8B05 /* SampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleView.m; sourceTree = "<group>"; };
 		A9F0047A1BE06B5F00842C59 /* RCRefreshControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCRefreshControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F0047E1BE06B5F00842C59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A9F004801BE06B5F00842C59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +76,9 @@
 				A9F0049A1BE06EB800842C59 /* TableViewController.m */,
 				A9F004831BE06B5F00842C59 /* ViewController.h */,
 				A9F004841BE06B5F00842C59 /* ViewController.m */,
+				A95C5F0A1BE09BF2000D8B05 /* SampleView.xib */,
+				A95C5F0C1BE09C51000D8B05 /* SampleView.h */,
+				A95C5F0D1BE09C51000D8B05 /* SampleView.m */,
 				A9F004861BE06B5F00842C59 /* Main.storyboard */,
 				A9F0048B1BE06B5F00842C59 /* LaunchScreen.storyboard */,
 				A9F004891BE06B5F00842C59 /* Assets.xcassets */,
@@ -154,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95C5F0B1BE09BF2000D8B05 /* SampleView.xib in Resources */,
 				A9F0048D1BE06B5F00842C59 /* LaunchScreen.storyboard in Resources */,
 				A9F0048A1BE06B5F00842C59 /* Assets.xcassets in Resources */,
 				A9F004881BE06B5F00842C59 /* Main.storyboard in Resources */,
@@ -171,6 +180,7 @@
 				A9F004821BE06B5F00842C59 /* AppDelegate.m in Sources */,
 				A9F004961BE06B8B00842C59 /* RCRefreshControl.m in Sources */,
 				A9F0049B1BE06EB800842C59 /* TableViewController.m in Sources */,
+				A95C5F0E1BE09C51000D8B05 /* SampleView.m in Sources */,
 				A9F0047F1BE06B5F00842C59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +328,7 @@
 				A9F004931BE06B5F00842C59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

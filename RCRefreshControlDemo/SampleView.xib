@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SampleView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-Qu-Ew6">
+                    <rect key="frame" x="168.5" y="14.5" width="37.5" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1dv-rb-2lc">
+                    <rect key="frame" x="177" y="14" width="20" height="20"/>
+                    <animations/>
+                </activityIndicatorView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="1dv-rb-2lc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1KK-oK-7Ex"/>
+                <constraint firstItem="R7X-Qu-Ew6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Np3-mt-aOe"/>
+                <constraint firstItem="R7X-Qu-Ew6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qw8-FM-6fu"/>
+                <constraint firstItem="1dv-rb-2lc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="w41-OJ-7ur"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityIndicator" destination="1dv-rb-2lc" id="F0u-Uc-BL7"/>
+                <outlet property="titleLabel" destination="R7X-Qu-Ew6" id="nTZ-dG-PIB"/>
+            </connections>
+        </view>
+    </objects>
+</document>

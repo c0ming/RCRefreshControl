@@ -9,12 +9,14 @@
 #import "TableViewController.h"
 
 #import "RCRefreshControl.h"
+#import "SampleView.h"
 
 static NSString *identifier = @"Cell";
 
 @interface TableViewController () <RCRefreshControlDelegate>
 
 @property (nonatomic, strong) RCRefreshControl *refreshControl2;
+@property (nonatomic, strong) SampleView *sampleView;
 
 @end
 
@@ -26,15 +28,26 @@ static NSString *identifier = @"Cell";
     [self.refreshControl2 endRefreshing];
 }
 
+#pragma mark - Setup
+
+- (void)setup {
+    self.refreshControl2 = [[RCRefreshControl alloc] init];
+    self.refreshControl2.delegate = self;
+    self.refreshControl2.backgroundColor = [UIColor redColor];
+    [self.tableView addSubview:self.refreshControl2];
+    
+    self.sampleView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([SampleView class]) owner:self options:nil] firstObject];
+    [self.refreshControl2 addSubview:self.sampleView];
+    self.sampleView.frame = self.refreshControl2.bounds; // or use Auto Layout
+}
+
+
 #pragma mark - 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.refreshControl2 = [[RCRefreshControl alloc] init];
-    self.refreshControl2.delegate = self;
-    self.refreshControl2.backgroundColor = [UIColor redColor];
-    [self.tableView addSubview:self.refreshControl2];
+    [self setup];
 }
 
 #pragma mark - Table view data source
@@ -65,14 +78,26 @@ static NSString *identifier = @"Cell";
 
 - (void)refreshControlDidBeginRefreshing:(RCRefreshControl *)refreshControl {
     NSLog(@"%s", __func__);
+    
+    self.sampleView.titleLabel.hidden = YES;
+    [self.sampleView.activityIndicator startAnimating];
 }
 
 - (void)refreshControlDidEndRefreshing:(RCRefreshControl *)refreshControl {
     NSLog(@"%s", __func__);
+    
+    self.sampleView.titleLabel.hidden = NO;
+    [self.sampleView.activityIndicator stopAnimating];
 }
 
 - (void)refreshControl:(RCRefreshControl *)refreshControl pullingProgress:(CGFloat)progress {
     NSLog(@">>> %.02f", progress);
+    
+    if (progress < 1.0f) {
+        self.sampleView.titleLabel.text = @"Pull Down to Refresh";
+    } else {
+        self.sampleView.titleLabel.text = @"Release to Update";
+    }
 }
 
 #pragma mark -
