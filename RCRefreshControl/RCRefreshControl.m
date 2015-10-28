@@ -94,7 +94,7 @@
         }
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + KS_REFRESH_CONTROL_HEIGHT, 0, 0, 0);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + KS_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
         } completion:nil];
     }
 }
@@ -104,7 +104,7 @@
         self.refreshing = NO;
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - KS_REFRESH_CONTROL_HEIGHT, 0, 0, 0);
+            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - KS_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
         }];
         
         if ([self.delegate respondsToSelector:@selector(refreshControlDidEndRefreshing:)]) {
