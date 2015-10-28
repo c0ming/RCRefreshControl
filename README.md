@@ -1,10 +1,10 @@
 ### RCRefreshControl
 
-Simple Refresh Control.
+Simple Refresh Control Framework.
 
 ### Usage
 
-* Use Like A UIRefreshControl:
+* Use Just Like A UIRefreshControl:
 
 ```
 RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
@@ -24,3 +24,6 @@ RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
 
 - (void)refreshControl:(RCRefreshControl *)refreshControl pullingProgress:(CGFloat)progress;
 ```
+
+### License
+[The MIT License (MIT)](./LICENSE)
