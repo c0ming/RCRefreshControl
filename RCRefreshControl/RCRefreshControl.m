@@ -36,8 +36,6 @@
         UIViewAutoresizingFlexibleRightMargin |
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;
-        
-        self.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
     return self;
 }
@@ -165,7 +163,9 @@
 #pragma mark -
 
 - (void)dealloc {
+#ifdef DEBUG
     NSLog(@"%s", __func__);
+#endif
 }
 
 @end
