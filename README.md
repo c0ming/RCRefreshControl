@@ -4,14 +4,14 @@ Simple Refresh Control Framework.
 
 ### Usage
 
-* Use Just Like A UIRefreshControl:
+* Use Just Like A UIRefreshControl
 
 ```
 RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
 [self.tableView addSubview:refreshControl];
 ```
 
-* RCRefreshControlDelegate:
+* RCRefreshControlDelegate
 
 ```
 - (CGFloat)heightOfRefreshControl:(RCRefreshControl *)refreshControl;
@@ -23,6 +23,13 @@ RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
 - (void)refreshControlDidEndRefreshing:(RCRefreshControl *)refreshControl;
 
 - (void)refreshControl:(RCRefreshControl *)refreshControl pullingProgress:(CGFloat)progress;
+```
+### Installation
+Just add RCRefreshControl.h/m files to your Project,
+
+or use [CocoaPods](https://cocoapods.org).
+```
+pod 'RCRefreshControl', '0.0.1'
 ```
 
 ### License
