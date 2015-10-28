@@ -13,6 +13,7 @@
 		A9F004881BE06B5F00842C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F004861BE06B5F00842C59 /* Main.storyboard */; };
 		A9F0048A1BE06B5F00842C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F004891BE06B5F00842C59 /* Assets.xcassets */; };
 		A9F0048D1BE06B5F00842C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F0048B1BE06B5F00842C59 /* LaunchScreen.storyboard */; };
+		A9F004961BE06B8B00842C59 /* RCRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F004951BE06B8B00842C59 /* RCRefreshControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A9F004891BE06B5F00842C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9F0048C1BE06B5F00842C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9F0048E1BE06B5F00842C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9F004941BE06B8B00842C59 /* RCRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRefreshControl.h; path = RCRefreshControl/RCRefreshControl.h; sourceTree = SOURCE_ROOT; };
+		A9F004951BE06B8B00842C59 /* RCRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRefreshControl.m; path = RCRefreshControl/RCRefreshControl.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		A9F0047C1BE06B5F00842C59 /* RCRefreshControlDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A9F004971BE06B9200842C59 /* RCRefreshControl */,
 				A9F004801BE06B5F00842C59 /* AppDelegate.h */,
 				A9F004811BE06B5F00842C59 /* AppDelegate.m */,
 				A9F004831BE06B5F00842C59 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				A9F0047E1BE06B5F00842C59 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9F004971BE06B9200842C59 /* RCRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				A9F004941BE06B8B00842C59 /* RCRefreshControl.h */,
+				A9F004951BE06B8B00842C59 /* RCRefreshControl.m */,
+			);
+			name = RCRefreshControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				A9F004851BE06B5F00842C59 /* ViewController.m in Sources */,
 				A9F004821BE06B5F00842C59 /* AppDelegate.m in Sources */,
+				A9F004961BE06B8B00842C59 /* RCRefreshControl.m in Sources */,
 				A9F0047F1BE06B5F00842C59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
