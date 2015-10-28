@@ -10,7 +10,7 @@
 
 
 #define KS_REFRESH_CONTROL_HEIGHT 48.0f
-#define KS_REFRESH_MIN_OFFSET 48
+#define KS_REFRESH_MIN_OFFSET 48.0f
 
 @interface RCRefreshControl ()
 
@@ -32,7 +32,10 @@
     if (self) {
         _refreshControlHeight = KS_REFRESH_CONTROL_HEIGHT;
         
-        self.autoresizingMask  = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
+        self.autoresizingMask  = UIViewAutoresizingFlexibleLeftMargin |
+        UIViewAutoresizingFlexibleRightMargin |
+        UIViewAutoresizingFlexibleWidth |
+        UIViewAutoresizingFlexibleBottomMargin;
         
         self.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }

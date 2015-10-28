@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TableViewController.h
 //  RCRefreshControlDemo
 //
 //  Created by c0ming on 10/28/15.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TableViewController : UITableViewController
 
 @end
-

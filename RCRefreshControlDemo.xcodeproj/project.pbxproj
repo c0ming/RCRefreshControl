@@ -14,6 +14,7 @@
 		A9F0048A1BE06B5F00842C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F004891BE06B5F00842C59 /* Assets.xcassets */; };
 		A9F0048D1BE06B5F00842C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F0048B1BE06B5F00842C59 /* LaunchScreen.storyboard */; };
 		A9F004961BE06B8B00842C59 /* RCRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F004951BE06B8B00842C59 /* RCRefreshControl.m */; };
+		A9F0049B1BE06EB800842C59 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F0049A1BE06EB800842C59 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A9F0048E1BE06B5F00842C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F004941BE06B8B00842C59 /* RCRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRefreshControl.h; path = RCRefreshControl/RCRefreshControl.h; sourceTree = SOURCE_ROOT; };
 		A9F004951BE06B8B00842C59 /* RCRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRefreshControl.m; path = RCRefreshControl/RCRefreshControl.m; sourceTree = SOURCE_ROOT; };
+		A9F004991BE06EB800842C59 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		A9F0049A1BE06EB800842C59 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +67,13 @@
 				A9F004971BE06B9200842C59 /* RCRefreshControl */,
 				A9F004801BE06B5F00842C59 /* AppDelegate.h */,
 				A9F004811BE06B5F00842C59 /* AppDelegate.m */,
+				A9F004991BE06EB800842C59 /* TableViewController.h */,
+				A9F0049A1BE06EB800842C59 /* TableViewController.m */,
 				A9F004831BE06B5F00842C59 /* ViewController.h */,
 				A9F004841BE06B5F00842C59 /* ViewController.m */,
 				A9F004861BE06B5F00842C59 /* Main.storyboard */,
-				A9F004891BE06B5F00842C59 /* Assets.xcassets */,
 				A9F0048B1BE06B5F00842C59 /* LaunchScreen.storyboard */,
+				A9F004891BE06B5F00842C59 /* Assets.xcassets */,
 				A9F0048E1BE06B5F00842C59 /* Info.plist */,
 				A9F0047D1BE06B5F00842C59 /* Supporting Files */,
 			);
@@ -165,6 +170,7 @@
 				A9F004851BE06B5F00842C59 /* ViewController.m in Sources */,
 				A9F004821BE06B5F00842C59 /* AppDelegate.m in Sources */,
 				A9F004961BE06B8B00842C59 /* RCRefreshControl.m in Sources */,
+				A9F0049B1BE06EB800842C59 /* TableViewController.m in Sources */,
 				A9F0047F1BE06B5F00842C59 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

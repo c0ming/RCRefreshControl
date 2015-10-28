@@ -10,9 +10,6 @@
 
 @class RCRefreshControl;
 
-
-@class RCRefreshControl;
-
 @protocol RCRefreshControlDelegate <NSObject>
 
 @optional
