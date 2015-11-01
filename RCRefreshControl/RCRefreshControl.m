@@ -8,9 +8,8 @@
 
 #import "RCRefreshControl.h"
 
-
-#define KS_REFRESH_CONTROL_HEIGHT 48.0f
-#define KS_REFRESH_MIN_OFFSET 48.0f
+#define RC_REFRESH_CONTROL_HEIGHT 48.0f
+#define RC_REFRESH_CONTROL_MIN_OFFSET 48.0f
 
 @interface RCRefreshControl ()
 
@@ -28,14 +27,12 @@
 @implementation RCRefreshControl
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0.0f, -KS_REFRESH_CONTROL_HEIGHT, CGRectGetWidth([UIScreen mainScreen].bounds), KS_REFRESH_CONTROL_HEIGHT)];
+    self = [super initWithFrame:CGRectMake(0.0f, -RC_REFRESH_CONTROL_HEIGHT, CGRectGetWidth([UIScreen mainScreen].bounds), RC_REFRESH_CONTROL_HEIGHT)];
     if (self) {
-        _refreshControlHeight = KS_REFRESH_CONTROL_HEIGHT;
+        _refreshControlHeight = RC_REFRESH_CONTROL_HEIGHT;
         
         self.autoresizingMask  = UIViewAutoresizingFlexibleLeftMargin |
-        UIViewAutoresizingFlexibleRightMargin |
-        UIViewAutoresizingFlexibleWidth |
-        UIViewAutoresizingFlexibleBottomMargin;
+        UIViewAutoresizingFlexibleRightMargin;
     }
     return self;
 }
@@ -92,7 +89,7 @@
         }
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + KS_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + RC_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
         } completion:nil];
     }
 }
@@ -102,7 +99,7 @@
         self.refreshing = NO;
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - KS_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
+            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - RC_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
         }];
         
         if ([self.delegate respondsToSelector:@selector(refreshControlDidEndRefreshing:)]) {
@@ -132,7 +129,7 @@
                 }
                 
                 if ([self.delegate respondsToSelector:@selector(refreshControl:pullingProgress:)]) {
-                    CGFloat progress = offset / KS_REFRESH_MIN_OFFSET;
+                    CGFloat progress = offset / RC_REFRESH_CONTROL_MIN_OFFSET;
                     if (progress < 0.0f) {
                         progress = 0.0f;
                     } else if (progress > 1.0f) {
@@ -146,7 +143,7 @@
             if (self.didBeginPulling) {
                 self.didBeginPulling = NO;
                 
-                if (offset > KS_REFRESH_MIN_OFFSET && self.shouldRefresh) {
+                if (offset > RC_REFRESH_CONTROL_MIN_OFFSET && self.shouldRefresh) {
                     [self beginRefreshing];
                 }
                 
@@ -159,6 +156,8 @@
         self.lastOffsetY = contentOffsetY;
     }
 }
+
+#pragma mark - Private Methods
 
 #pragma mark -
 
