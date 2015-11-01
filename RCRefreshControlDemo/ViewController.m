@@ -12,7 +12,8 @@
 
 @interface ViewController () <RCRefreshControlDelegate>
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+//@property (nonatomic, strong) UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) RCRefreshControl *refreshControl;
 
 @end
@@ -30,10 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.scrollView.alwaysBounceVertical = YES;
-    self.scrollView.autoresizingMask = 63;
-    [self.view addSubview:self.scrollView];
+//    self.scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.scrollView.alwaysBounceVertical = YES;
+//    self.scrollView.autoresizingMask = 63;
+//    [self.view addSubview:self.scrollView];
     
     self.refreshControl = [[RCRefreshControl alloc] init];
     self.refreshControl.delegate = self;

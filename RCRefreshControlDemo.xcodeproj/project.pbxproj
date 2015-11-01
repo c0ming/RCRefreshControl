@@ -34,7 +34,7 @@
 		A9F0048C1BE06B5F00842C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A9F0048E1BE06B5F00842C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F004941BE06B8B00842C59 /* RCRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCRefreshControl.h; path = RCRefreshControl/RCRefreshControl.h; sourceTree = SOURCE_ROOT; };
-		A9F004951BE06B8B00842C59 /* RCRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCRefreshControl.m; path = RCRefreshControl/RCRefreshControl.m; sourceTree = SOURCE_ROOT; };
+		A9F004951BE06B8B00842C59 /* RCRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RCRefreshControl.m; path = RCRefreshControl/RCRefreshControl.m; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A9F004991BE06EB800842C59 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		A9F0049A1BE06EB800842C59 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
