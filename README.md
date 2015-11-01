@@ -4,10 +4,11 @@ Simple Refresh Control Framework.
 
 ### Usage
 
-* Use Just Like A UIRefreshControl
+* Use Just Like a UIRefreshControl
 
 ```
 RCRefreshControl *refreshControl = [[RCRefreshControl alloc] init];
+refreshControl.delegate = self;
 [self.tableView addSubview:refreshControl];
 ```
 
