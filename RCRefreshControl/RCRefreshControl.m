@@ -20,19 +20,15 @@
 @property (nonatomic, assign) BOOL shouldRefresh;
 
 @property (nonatomic, assign) CGFloat lastOffsetY;
-@property (nonatomic, assign) CGFloat refreshControlHeight;
 
 @end
 
 @implementation RCRefreshControl
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0.0f, -RC_REFRESH_CONTROL_HEIGHT, CGRectGetWidth([UIScreen mainScreen].bounds), RC_REFRESH_CONTROL_HEIGHT)];
+    self = [super initWithFrame:CGRectZero];
     if (self) {
-        _refreshControlHeight = RC_REFRESH_CONTROL_HEIGHT;
-        
-        self.autoresizingMask  = UIViewAutoresizingFlexibleLeftMargin |
-        UIViewAutoresizingFlexibleRightMargin;
+        self.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return self;
 }
@@ -44,7 +40,16 @@
         self.scrollView = (UIScrollView *)self.superview;
         [self.scrollView.panGestureRecognizer addTarget:self action:@selector(panGestureHandler:)];
         
-        [self setup];
+        CGFloat refreshControlWidth = [RCRefreshControl _portraitScreenWidth];
+        CGFloat refreshControlHeight = RC_REFRESH_CONTROL_HEIGHT;
+        if ([self.delegate respondsToSelector:@selector(heightOfRefreshControl:)]) {
+            refreshControlHeight = [self.delegate heightOfRefreshControl:self];
+        }
+        
+        NSDictionary *views = NSDictionaryOfVariableBindings(self);
+        [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%@)-[self(%@)]", @(-refreshControlHeight), @(refreshControlHeight)] options:0 metrics:nil views:views]];
+        [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[self(%@)]", @(refreshControlWidth)] options:0 metrics:nil views:views]];
+        [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     }
 }
 
@@ -56,27 +61,8 @@
         self.scrollView.scrollEnabled = YES;
     }
     
-    if ([self.delegate respondsToSelector:@selector(heightOfRefreshControl:)]) {
-        CGFloat height = [self.delegate heightOfRefreshControl:self];
-        
-        if (fabs(self.refreshControlHeight - height) > 1E-6) {
-            CGRect frame = self.frame;
-            frame.size.height = height;
-            frame.origin.y = -height;
-            self.frame = frame;
-            
-            self.refreshControlHeight = height;
-        }
-    }
-    
     [super layoutSubviews];
 }
-
-#pragma mark - Setup
-
-- (void)setup {
-}
-
 
 #pragma mark -
 
@@ -159,6 +145,10 @@
 
 #pragma mark - Private Methods
 
++ (CGFloat)_portraitScreenWidth {
+    return UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation) ? CGRectGetWidth([UIScreen mainScreen].bounds) : CGRectGetHeight([UIScreen mainScreen].bounds);
+}
+
 #pragma mark -
 
 - (void)dealloc {
@@ -168,4 +158,3 @@
 }
 
 @end
-
