@@ -30,7 +30,7 @@ Just add RCRefreshControl.h/m files to your Project,
 
 or use [CocoaPods](https://cocoapods.org).
 ```
-pod 'RCRefreshControl', '0.0.2'
+pod 'RCRefreshControl', '0.0.3'
 ```
 
 ### License
