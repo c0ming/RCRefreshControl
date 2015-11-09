@@ -16,6 +16,7 @@ refreshControl.delegate = self;
 
 ```
 - (CGFloat)heightOfRefreshControl:(RCRefreshControl *)refreshControl;
+- (CGFloat)pullingOffsetOfRefreshControl:(RCRefreshControl *)refreshControl;
 
 - (void)refreshControlDidBeginPulling:(RCRefreshControl *)refreshControl;
 - (void)refreshControlDidEndPulling:(RCRefreshControl *)refreshControl;
