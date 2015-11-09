@@ -8,8 +8,8 @@
 
 #import "RCRefreshControl.h"
 
-#define RC_REFRESH_CONTROL_HEIGHT 48.0f
-#define RC_REFRESH_CONTROL_MIN_OFFSET 48.0f
+#define RC_REFRESH_CONTROL_DEFAULT_HEIGHT 48.0f
+#define RC_REFRESH_CONTROL_DEFAULT_PULLING_OFFSET 48.0f
 
 @interface RCRefreshControl ()
 
@@ -20,6 +20,8 @@
 @property (nonatomic, assign) BOOL shouldRefresh;
 
 @property (nonatomic, assign) CGFloat lastOffsetY;
+@property (nonatomic, assign) CGFloat refreshControllHeight;
+@property (nonatomic, assign) CGFloat refreshControllPullingOffset;
 
 @end
 
@@ -41,15 +43,23 @@
         [self.scrollView.panGestureRecognizer addTarget:self action:@selector(panGestureHandler:)];
         
         CGFloat refreshControlWidth = [RCRefreshControl _portraitScreenWidth];
-        CGFloat refreshControlHeight = RC_REFRESH_CONTROL_HEIGHT;
+        CGFloat refreshControlHeight = RC_REFRESH_CONTROL_DEFAULT_HEIGHT;
         if ([self.delegate respondsToSelector:@selector(heightOfRefreshControl:)]) {
             refreshControlHeight = [self.delegate heightOfRefreshControl:self];
+        }
+        
+        CGFloat refreshControllPullingOffset = RC_REFRESH_CONTROL_DEFAULT_PULLING_OFFSET;
+        if ([self.delegate respondsToSelector:@selector(pullingOffsetOfRefreshControl:)]) {
+            refreshControllPullingOffset = [self.delegate pullingOffsetOfRefreshControl:self];
         }
         
         NSDictionary *views = NSDictionaryOfVariableBindings(self);
         [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%@)-[self(%@)]", @(-refreshControlHeight), @(refreshControlHeight)] options:0 metrics:nil views:views]];
         [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[self(%@)]", @(refreshControlWidth)] options:0 metrics:nil views:views]];
         [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
+        
+        self.refreshControllHeight = refreshControlHeight;
+        self.refreshControllPullingOffset = refreshControllPullingOffset;
     }
 }
 
@@ -75,7 +85,7 @@
         }
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + RC_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
+            self.scrollView.contentInset = UIEdgeInsetsMake(self.scrollView.contentInset.top + self.refreshControllHeight, 0, self.scrollView.contentInset.bottom, 0);
         } completion:nil];
     }
 }
@@ -85,7 +95,7 @@
         self.refreshing = NO;
         
         [UIView animateWithDuration:0.25f animations: ^{
-            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - RC_REFRESH_CONTROL_HEIGHT, 0, self.scrollView.contentInset.bottom, 0);
+            self.scrollView.contentInset =  UIEdgeInsetsMake(self.scrollView.contentInset.top - self.refreshControllHeight, 0, self.scrollView.contentInset.bottom, 0);
         }];
         
         if ([self.delegate respondsToSelector:@selector(refreshControlDidEndRefreshing:)]) {
@@ -115,7 +125,7 @@
                 }
                 
                 if ([self.delegate respondsToSelector:@selector(refreshControl:pullingProgress:)]) {
-                    CGFloat progress = offset / RC_REFRESH_CONTROL_MIN_OFFSET;
+                    CGFloat progress = offset / self.refreshControllPullingOffset;
                     if (progress < 0.0f) {
                         progress = 0.0f;
                     } else if (progress > 1.0f) {
@@ -129,7 +139,7 @@
             if (self.didBeginPulling) {
                 self.didBeginPulling = NO;
                 
-                if (offset > RC_REFRESH_CONTROL_MIN_OFFSET && self.shouldRefresh) {
+                if (offset > self.refreshControllPullingOffset && self.shouldRefresh) {
                     [self beginRefreshing];
                 }
                 
