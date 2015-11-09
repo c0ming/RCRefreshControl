@@ -41,8 +41,7 @@ static NSString *identifier = @"Cell";
     self.sampleView.frame = self.refreshControl2.bounds; // or use Auto Layout
 }
 
-
-#pragma mark - 
+#pragma mark -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,6 +66,14 @@ static NSString *identifier = @"Cell";
 }
 
 #pragma mark - RCRefreshControlDelegate
+
+- (CGFloat)heightOfRefreshControl:(RCRefreshControl *)refreshControl {
+    return 64.0f;
+}
+
+- (CGFloat)pullingOffsetOfRefreshControl:(RCRefreshControl *)refreshControl {
+    return 64.0f;
+}
 
 - (void)refreshControlDidBeginPulling:(RCRefreshControl *)refreshControl {
     NSLog(@"%s", __func__);
@@ -106,7 +113,7 @@ static NSString *identifier = @"Cell";
     [segue destinationViewController].hidesBottomBarWhenPushed = YES;
 }
 
--(void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+- (void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     NSLog(@"%s", __func__);
 }
 
