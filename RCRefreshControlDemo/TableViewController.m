@@ -67,14 +67,6 @@ static NSString *identifier = @"Cell";
 
 #pragma mark - RCRefreshControlDelegate
 
-- (CGFloat)heightOfRefreshControl:(RCRefreshControl *)refreshControl {
-    return 64.0f;
-}
-
-- (CGFloat)pullingOffsetOfRefreshControl:(RCRefreshControl *)refreshControl {
-    return 64.0f;
-}
-
 - (void)refreshControlDidBeginPulling:(RCRefreshControl *)refreshControl {
     NSLog(@"%s", __func__);
 }
